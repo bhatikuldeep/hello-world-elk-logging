@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="6" name="hello-world-elk-logging">
+    <Basepaths>/v1/hello-world-elk-logging</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1551090463999</CreatedAt>
+    <CreatedBy>kuldeep.bhati@devoteam.com</CreatedBy>
+    <Description>Sample Proxy created to demonstrate logging to ELK stack</Description>
+    <DisplayName>hello-world-elk-logging</DisplayName>
+    <LastModifiedAt>1551090463999</LastModifiedAt>
+    <LastModifiedBy>kuldeep.bhati@devoteam.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:66cc7873a066802035d7ef7c3e5c6ef02912a44c8b84b79479dbfe622639210493987a7cc8bcc6d972a7558b051c99c5ee0a1e5d1c6f34debd85aef90c552d02</ManifestVersion>
+    <Policies>
+        <Policy>setMessageLogging</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources/>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

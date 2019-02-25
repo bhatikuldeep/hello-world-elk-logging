@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "830b524d-8c74-4709-a521-5bd20b259b01",
+		"name": "Apigee Edge + ELK  - Message Logging",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "200 OK /v1/hello-world-elk-logging/json",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f5f69d3c-a0a6-4bfd-9549-55a3e57f4246",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Response status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{proxy_endpoint}}/v1/hello-world-elk-logging/json",
+					"host": [
+						"{{proxy_endpoint}}"
+					],
+					"path": [
+						"v1",
+						"hello-world-elk-logging",
+						"json"
+					]
+				},
+				"description": "Message logging to ELK stack"
+			},
+			"response": []
+		}
+	]
+}
