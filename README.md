@@ -1,28 +1,28 @@
 Apigee Edge - External Message Logging with ELK stack 
 ======================================================
 ## About
-This API proxy demonstrates message loggign to ELK (Elastic, Logstash, Kibana) stack.
+This API proxy demonstrates message logging to ELK (Elastic, Logstash, Kibana) stack.
 
-Apigee supports message logging to external systems like Loggly etc; Though sending logs to Loggly is much-much simpler, it took me quite some time and efforts to send logs, speciallly JSON to ELK stack, the policy configuration of this apiproxy at apigee edge side is much easy, however parsing the logs in JSON format was the difficult task.  
+Apigee supports message logging to external systems like Loggly etc; Though sending logs to Loggly is much-much simpler, it took me quite some time and efforts to send logs, specially JSON to ELK stack, the policy configuration of this apiproxy at Apigee Edge side is much easy, however parsing the logs in JSON format was the difficult task.  
 
-The objective of creating this repository to to help Apigee developers to quickstart with logging with ELK stack.   
+The objective of creating this repository to help Apigee developers to QuickStart with logging with ELK stack.   
 
 ## Out of scope
- - Installation and configuragation ELK stack, for demo purpose I followed this link - installed on my local Mac.
- - You will have to make logstash IP publicly avaiable, so Apigee edge can connect and send the message; I use ngrok for that, you can use this link to tunnel your localhost to make it public accessible URL;
->Having said, you are free to setup and install ELK stack, use ngrok to publish locally installed logstash to public IP/port, and last but not the least use the attached logstash configuration file () to ensure correct parsing of the JSON coming from apigee edge. 
+ - Installation and configuration ELK stack, for demo purpose I followed this link - installed on my local Mac.
+ - You will have to make Logstash IP publicly available, so Apigee edge can connect and send the message; I use `ngrok` for that, you can use this link to tunnel your localhost to make it public accessible URL;
+>Having said, you are free to setup and install ELK stack, use `ngrok` to publish locally installed Logstash to public IP/port, and last but not the least use the attached Logstash configuration file () to ensure correct parsing of the JSON coming from Apigee edge. 
 
 ## Prerequisite
 - Apigee edge account
 - Logstash IP and Port.
 -- Make sure, there's connectivity between Apigee Edge and Logstash IP/Port. 
-- Most important one, use logstash configuration attached to this repo for parsing the log properly of you wish to have JSON parsed proerly. 
+- Most important one, use Logstash configuration attached to this repo for parsing the log properly of you wish to have JSON parsed properly. 
 
-## Recommened
-- postman  (to run postman collection)
-- nodeJS (for newman and apigeetool)
+## Recommended
+- postman (to run postman collection)
+- NodeJS (for newman and apigeetool)
 - newman (node JS module to execute tests on local machine)
-- apigeetool (deploying this proxy to apigee edge)
+- apigeetool (deploying this proxy to Apigee edge)
 
 ## Deploy
 You can use either of the option mentioned below;
@@ -60,4 +60,4 @@ newman run "tests/apiproxy.postman_collection.json" -e "tests/test.postman_envir
 https://github.com/bhatikuldeep/hello-world-elk-logging/issues
 
 ## Some Tips
-Todo
+To-do
