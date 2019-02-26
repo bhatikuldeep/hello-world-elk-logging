@@ -43,11 +43,11 @@ The objective of creating this repository to help Apigee developers to QuickStar
 - newman (node JS module to execute tests on local machine)
 - apigeetool (deploying this proxy to Apigee edge)
 
-# How to use it
+## How to use it
 
-## 1. Deploy API proxy to Apigee Edge
+### 1. Deploy API proxy to Apigee Edge
 You can use either of the option mentioned below;
-#### option 1: using `apigeetool`
+##### option 1: using `apigeetool`
 You can deploy this API proxy by calling this command.
 
 ```bash
@@ -59,7 +59,7 @@ apigeetool deployproxy  -u kuldeep.bhati@devoteam.com -o abccorp-nonprod  -e tes
 ```
 For more information about `apigeetool` read here - https://www.npmjs.com/package/apigeetool
 
-#### option 2: uploading a zip to apigee edge
+##### option 2: uploading a zip to apigee edge
 
 1. Create a bundle zip file with below command;
 ```bash 
@@ -69,7 +69,7 @@ zip -r apiproxy.zip apiproxy
 2. Upload it to apigee edge using proxy creation wizard.
 Make sure it is deployed before testing.
 
-## 2. Change IP/PORT of Logstash 
+### 2. Change IP/PORT of Logstash 
 Once the API proxy is deployed, go to the message logging policy (setMessageLogging.xml) and add Logstash IP and Port as described in below code - https://gist.github.com/bhatikuldeep/d9fef45aefd9141dbfb3dba2bfc1c86d
 
 
