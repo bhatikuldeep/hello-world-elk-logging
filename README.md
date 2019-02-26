@@ -12,7 +12,7 @@ The objective of creating this repository to help Apigee developers to QuickStar
 ## Out of scope
  - Installation and configuration ELK stack, for demo purpose I followed this link - installed on my local Mac.
  - You will have to make Logstash IP publicly available, so Apigee edge can connect and send the message; I use [`ngrok`](https://ngrok.com/) for that, you can use this link to tunnel your localhost to make it public accessible URL;
->Having said, you are free to setup and install ELK stack, use [`ngrok`](https://ngrok.com/) to publish locally installed Logstash to public IP/port, and last but not the least use the attached [Logstash configuration file](../blob/master/logstash-sample.conf) to ensure correct parsing of the JSON coming from Apigee edge. 
+>Having said, you are free to setup and install ELK stack, use [`ngrok`](https://ngrok.com/) to publish locally installed Logstash to public IP/port, and last but not the least use the attached [Logstash configuration file](../master/logstash-sample.conf) to ensure correct parsing of the JSON coming from Apigee edge. 
 
 ## Prerequisite
 - Apigee edge account
@@ -68,6 +68,6 @@ newman run "tests/apiproxy.postman_collection.json" -e "tests/test.postman_envir
 https://github.com/bhatikuldeep/hello-world-elk-logging/issues
 
 ## Some Tips
-- IMHO, attached message logging policy (../blob/master/apiproxy/policies/setMessageLogging.xml) captures almost all necessary variables, please add/remove wherver necessary. Just make sure that JSON that you out is with whitespace removed to properly parse JSON at logstash side. I use http://jsonviewer.stack.hu/ to format JSON, validate JSON and remove white space. 
+- IMHO, attached message logging policy - [setMessageLogging.xml](../master/apiproxy/policies/setMessageLogging.xml) captures almost all necessary variables, please add/remove wherver necessary. Just make sure that JSON that you out is with whitespace removed to properly parse JSON at logstash side. I use http://jsonviewer.stack.hu/ to format JSON, validate JSON and remove white space. 
 
 
