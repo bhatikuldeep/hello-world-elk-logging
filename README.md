@@ -3,14 +3,16 @@ Apigee Edge - External Message Logging with ELK stack
 ## About
 This API proxy demonstrates message logging to ELK (Elastic, Logstash, Kibana) stack.
 
+Those eager to try hands on -  Go to  [How to use It](#how-to-use-it)
+
 Apigee supports message logging to external systems like Loggly etc; Though sending logs to Loggly is much-much simpler, it took me quite some time and efforts to send logs, specially JSON to ELK stack, the policy configuration of this apiproxy at Apigee Edge side is much easy, however parsing the logs in JSON format was the difficult task.  
 
 The objective of creating this repository to help Apigee developers to QuickStart with logging with ELK stack.   
 
 ## Out of scope
  - Installation and configuration ELK stack, for demo purpose I followed this link - installed on my local Mac.
- - You will have to make Logstash IP publicly available, so Apigee edge can connect and send the message; I use `ngrok` for that, you can use this link to tunnel your localhost to make it public accessible URL;
->Having said, you are free to setup and install ELK stack, use `ngrok` to publish locally installed Logstash to public IP/port, and last but not the least use the attached Logstash configuration file () to ensure correct parsing of the JSON coming from Apigee edge. 
+ - You will have to make Logstash IP publicly available, so Apigee edge can connect and send the message; I use [`ngrok`](https://ngrok.com/) for that, you can use this link to tunnel your localhost to make it public accessible URL;
+>Having said, you are free to setup and install ELK stack, use [`ngrok`](https://ngrok.com/) to publish locally installed Logstash to public IP/port, and last but not the least use the attached [Logstash configuration file](../blob/master/logstash-sample.conf) to ensure correct parsing of the JSON coming from Apigee edge. 
 
 ## Prerequisite
 - Apigee edge account
@@ -24,7 +26,9 @@ The objective of creating this repository to help Apigee developers to QuickStar
 - newman (node JS module to execute tests on local machine)
 - apigeetool (deploying this proxy to Apigee edge)
 
-## Deploy
+# How to use it
+
+## 1. Deploy API proxy to Apigee Edge
 You can use either of the option mentioned below;
 #### option 1: using `apigeetool`
 You can deploy this API proxy by calling this command.
@@ -48,7 +52,11 @@ zip -r apiproxy.zip apiproxy
 2. Upload it to apigee edge using proxy creation wizard.
 Make sure it is deployed before testing.
 
-## Unit Test
+## 2. Change IP/PORT of Logstash 
+Once the API proxy is deployed, go to the message logging policy and add Logstash IP and Port as described in below code
+<script src="https://gist.github.com/bhatikuldeep/d9fef45aefd9141dbfb3dba2bfc1c86d.js"></script> 
+
+## Unit Test (Optional)
 Set the `proxy_endpoint` in tests/test.postman_environment.json file before executing the command below.
 
 You can test this API proxy by calling this command.
@@ -60,4 +68,6 @@ newman run "tests/apiproxy.postman_collection.json" -e "tests/test.postman_envir
 https://github.com/bhatikuldeep/hello-world-elk-logging/issues
 
 ## Some Tips
-To-do
+- IMHO, attached message logging policy (../blob/master/apiproxy/policies/setMessageLogging.xml) captures almost all necessary variables, please add/remove wherver necessary. Just make sure that JSON that you out is with whitespace removed to properly parse JSON at logstash side. I use http://jsonviewer.stack.hu/ to format JSON, validate JSON and remove white space. 
+
+
