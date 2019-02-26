@@ -74,7 +74,7 @@ Once the API proxy is deployed, go to the message logging policy (setMessageLogg
 
 
 ## Unit Test (Optional)
-Set the `proxy_endpoint` in tests/test.postman_environment.json file before executing the command below.
+Set the `proxy_endpoint` in [tests/test.postman_environment.json](tests/test.postman_environment.json) file before executing the command below.
 
 You can test this API proxy by calling this command.
 ```bash
