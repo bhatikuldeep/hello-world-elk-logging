@@ -1,6 +1,7 @@
 # Apigee Edge - External Message Logging to ELK stack
 
-![Apigee Edge + ELK](docs/images/apigee-elk.png)
+<img src="docs/images/apigee-elk.png" width="400">
+
 ## About
 This API proxy demonstrates message logging to ELK (Elastic, Logstash, Kibana) stack.
 
