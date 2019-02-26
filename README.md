@@ -86,5 +86,5 @@ https://github.com/bhatikuldeep/hello-world-elk-logging/issues
 
 ## Some Tips
 - IMHO, attached message logging policy - [setMessageLogging.xml](apiproxy/policies/setMessageLogging.xml) captures almost all necessary variables, please add/remove wherver necessary. Just make sure that JSON that you out is with whitespace removed to properly parse JSON at logstash side. I use http://jsonviewer.stack.hu/ to format JSON, validate JSON and remove white space. 
-
+- Use index with name `apigee-*` when creating index using Kibana dashboard.
 
