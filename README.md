@@ -11,9 +11,13 @@ Apigee supports message logging to external systems like Loggly etc; Though send
 The objective of creating this repository to help Apigee developers to QuickStart with logging with ELK stack.   
 
 ## Out of scope
- - Installation and configuration ELK stack, for demo purpose I followed this link - installed on my local Mac.
- - You will have to make Logstash IP publicly available, so Apigee edge can connect and send the message; I use [`ngrok`](https://ngrok.com/) for that, you can use this link to tunnel your localhost to make it public accessible URL;
->Having said, you are free to setup and install ELK stack, use [`ngrok`](https://ngrok.com/) to publish locally installed Logstash to public IP/port, and last but not the least use the attached [Logstash configuration file](../master/logstash-sample.conf) to ensure correct parsing of the JSON coming from Apigee edge. 
+ - Installation and configuration ELK stack, for demo purpose I followed this [link](https://logz.io/blog/elk-mac/) - installed on my local Mac.
+ - If you installed and test ELK on your local, you will have to make Logstash IP publicly available so Apigee edge can connect and send the message; 
+>Having said, you are free to setup and install ELK stack, use [`ngrok`](https://ngrok.com/) to publish locally installed Logstash to public IP/port. I used [`ngrok`](https://ngrok.com/) for that, which is really a great! You can install `ngrok` and tunnel your localhost to make it public accessible URL; I ran below command to do that, where `5044` is my local Logstash port.
+ ```bash
+ ./ngrok tcp 5044 --region eu
+ ```
+ >DO NOT FORGET to attach [Logstash configuration file](../master/logstash-sample.conf) to ensure correct parsing of the JSON coming from Apigee edge. 
 
 ## Prerequisite
 - Apigee edge account
