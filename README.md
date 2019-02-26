@@ -11,13 +11,22 @@ Apigee supports message logging to external systems like Loggly etc; Though send
 The objective of creating this repository to help Apigee developers to QuickStart with logging with ELK stack.   
 
 ## Out of scope
- - Installation and configuration ELK stack, for demo purpose I followed this [link](https://logz.io/blog/elk-mac/) - installed on my local Mac.
- - If you installed and test ELK on your local, you will have to make Logstash IP publicly available so Apigee edge can connect and send the message; 
->Having said, you are free to setup and install ELK stack, use [`ngrok`](https://ngrok.com/) to publish locally installed Logstash to public IP/port. I used [`ngrok`](https://ngrok.com/) for that, which is really a great! You can install `ngrok` and tunnel your localhost to make it public accessible URL; I ran below command to do that, where `5044` is my local Logstash port.
- ```bash
- ./ngrok tcp 5044 --region eu
- ```
- >DO NOT FORGET to attach [Logstash configuration file](../master/logstash-sample.conf) to ensure correct parsing of the JSON coming from Apigee edge. 
+- Installation and configuration ELK stack. 
+    >Having said that, you are free to setup and install ELK stack to check and validate setup locally.
+    - For demo purpose I followed this [link](https://logz.io/blog/elk-mac/) - installed on my local Mac.
+    - If you install and test ELK on your local, you will have to make Logstash IP publicly available so Apigee edge can connect and send the message; You can use [`ngrok`](https://ngrok.com/) to publish locally installed Logstash to public IP/port. I used [`ngrok`](https://ngrok.com/) for that, which is really a great tool! Install `ngrok` and tunnel your localhost to make it public accessible URL; I use below command to tunnel localhost, where `5044` is my local Logstash port.
+    ```bash
+    ./ngrok tcp 5044 --region eu
+    ```
+    - `ngrok` will display a public HOST, similar to below;
+    ```bash
+    ...
+    Forwarding                    tcp://0.tcp.eu.ngrok.io:17063 -> localhost:5044
+    ...
+    ```bash
+    - Host: Use 0.tcp.eu.ngrok.io as `Host` in setMessageLogging.xml](apiproxy/policies/setMessageLogging.xml)
+    - Port: Use 17063 as `Port` in setMessageLogging.xml](apiproxy/policies/setMessageLogging.xml)
+    - DO NOT FORGET to attach [Logstash configuration file](logstash-sample.conf) to ensure correct parsing of the JSON coming from Apigee edge. 
 
 ## Prerequisite
 - Apigee edge account
@@ -73,6 +82,6 @@ newman run "tests/apiproxy.postman_collection.json" -e "tests/test.postman_envir
 https://github.com/bhatikuldeep/hello-world-elk-logging/issues
 
 ## Some Tips
-- IMHO, attached message logging policy - [setMessageLogging.xml](../master/apiproxy/policies/setMessageLogging.xml) captures almost all necessary variables, please add/remove wherver necessary. Just make sure that JSON that you out is with whitespace removed to properly parse JSON at logstash side. I use http://jsonviewer.stack.hu/ to format JSON, validate JSON and remove white space. 
+- IMHO, attached message logging policy - [setMessageLogging.xml](apiproxy/policies/setMessageLogging.xml) captures almost all necessary variables, please add/remove wherver necessary. Just make sure that JSON that you out is with whitespace removed to properly parse JSON at logstash side. I use http://jsonviewer.stack.hu/ to format JSON, validate JSON and remove white space. 
 
 
