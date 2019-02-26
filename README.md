@@ -1,4 +1,4 @@
-# Apigee Edge - External Message Logging with ELK stack
+# Apigee Edge - External Message Logging to ELK stack
 
 ![Apigee Edge + ELK](docs/images/apigee-elk.png)
 ## About
@@ -12,20 +12,23 @@ The objective of creating this repository to help Apigee developers to QuickStar
 
 ## Out of scope
 - Installation and configuration ELK stack. 
-    >Having said that, you are free to setup and install ELK stack to check and validate setup locally.
+    - Having said that, you are free to setup and install ELK stack to check and validate this setup locally.
     - For demo purpose I followed this [link](https://logz.io/blog/elk-mac/) - installed on my local Mac.
-    - If you install and test ELK on your local, you will have to make Logstash IP publicly available so Apigee edge can connect and send the message; You can use [`ngrok`](https://ngrok.com/) to publish locally installed Logstash to public IP/port. I used [`ngrok`](https://ngrok.com/) for that, which is really a great tool! Install `ngrok` and tunnel your localhost to make it public accessible URL; I use below command to tunnel localhost, where `5044` is my local Logstash port.
+    - If you install and test ELK on your local, you will have to make Logstash IP publicly available so Apigee edge can connect and send the message; You can use [`ngrok`](https://ngrok.com/) to publish locally installed Logstash to public IP/port, which is a great tool!
+    - Install `ngrok` and tunnel your localhost to make it public accessible URL; I use below command to tunnel localhost, where `5044` is my local Logstash port.
     ```bash
     ./ngrok tcp 5044 --region eu
     ```
     - `ngrok` will display a public HOST, similar to below;
-    ```bash
+
+    ```
     ...
     Forwarding                    tcp://0.tcp.eu.ngrok.io:17063 -> localhost:5044
     ...
-    ```bash
-    - Host: Use 0.tcp.eu.ngrok.io as `Host` in setMessageLogging.xml](apiproxy/policies/setMessageLogging.xml)
-    - Port: Use 17063 as `Port` in setMessageLogging.xml](apiproxy/policies/setMessageLogging.xml)
+    ```
+    - As an example;
+        - Use 0.tcp.eu.ngrok.io as `Host` in [setMessageLogging.xml](apiproxy/policies/setMessageLogging.xml)
+        - Use 17063 as `Port` in [setMessageLogging.xml](apiproxy/policies/setMessageLogging.xml)
     - DO NOT FORGET to attach [Logstash configuration file](logstash-sample.conf) to ensure correct parsing of the JSON coming from Apigee edge. 
 
 ## Prerequisite
