@@ -4,7 +4,7 @@
 ## About
 This API proxy demonstrates message logging to ELK (Elastic, Logstash, Kibana) stack.
 
-Those eager to try hands on -  Go to  [How to use It](#how-to-use-it)
+Those eager to see this in action -  Jump directly to  [How to use It](#how-to-use-it)
 
 Apigee supports message logging to external systems like Loggly etc; Though sending logs to Loggly is much-much simpler, it took me quite some time and efforts to send logs, specially JSON to ELK stack, the policy configuration of this apiproxy at Apigee Edge side is much easy, however parsing the logs in JSON format was the difficult task.  
 
@@ -19,7 +19,7 @@ The objective of creating this repository to help Apigee developers to QuickStar
     ```bash
     ./ngrok tcp 5044 --region eu
     ```
-    - `ngrok` will display a public HOST, similar to below;
+    - while running above command `ngrok` will display a public HOST, similar to below;
 
     ```
     ...
@@ -29,7 +29,7 @@ The objective of creating this repository to help Apigee developers to QuickStar
     - As an example;
         - Use 0.tcp.eu.ngrok.io as `Host` in [setMessageLogging.xml](apiproxy/policies/setMessageLogging.xml)
         - Use 17063 as `Port` in [setMessageLogging.xml](apiproxy/policies/setMessageLogging.xml)
-    - DO NOT FORGET to attach [Logstash configuration file](logstash-sample.conf) to ensure correct parsing of the JSON coming from Apigee edge. 
+    - DO NOT FORGET to add [Logstash configuration file](logstash-sample.conf) to Logstash to ensure correct parsing of the JSON coming from Apigee edge. 
 
 ## Prerequisite
 - Apigee edge account
