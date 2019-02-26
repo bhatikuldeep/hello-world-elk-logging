@@ -53,8 +53,8 @@ zip -r apiproxy.zip apiproxy
 Make sure it is deployed before testing.
 
 ## 2. Change IP/PORT of Logstash 
-Once the API proxy is deployed, go to the message logging policy and add Logstash IP and Port as described in below code
-<script src="https://gist.github.com/bhatikuldeep/d9fef45aefd9141dbfb3dba2bfc1c86d.js"></script> 
+Once the API proxy is deployed, go to the message logging policy (setMessageLogging.xml) and add Logstash IP and Port as described in below code - https://gist.github.com/bhatikuldeep/d9fef45aefd9141dbfb3dba2bfc1c86d
+
 
 ## Unit Test (Optional)
 Set the `proxy_endpoint` in tests/test.postman_environment.json file before executing the command below.
